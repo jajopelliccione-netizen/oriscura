@@ -11,6 +11,7 @@
 <header id="hdr">
     <a href="#home" class="logo">
         <img src="Dr._Aldo_Grammatica-removebg-preview.png" alt="OrisCura logo" class="logo-img">
+        <div class="logo-divider"></div>
         <div class="logo-wm">
             <span class="logo-nm"><span class="oc">ORIS</span><span class="oc2">CURA</span></span>
             <span class="logo-sb">Odontoiatria Specialistica</span>
@@ -224,7 +225,7 @@ setInterval(()=>goTo((cur+1)%slides.length),4500);
 const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}});},{threshold:.1});
 document.querySelectorAll('.rev').forEach(el=>ro.observe(el));
 const hdr=document.getElementById('hdr');
-window.addEventListener('scroll',()=>{hdr.style.background=window.scrollY>60?'rgba(10,10,10,.98)':'rgba(10,10,10,.93)';},{passive:true});
+window.addEventListener('scroll',()=>{hdr.classList.toggle('scrolled',window.scrollY>60);},{passive:true});
 </script>
 </body>
 </html>
