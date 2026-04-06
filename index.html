@@ -119,14 +119,24 @@
             <div class="mi-ov"><span class="mi-lbl">Esperienza</span></div>
         </div>
        
-        <div class="mi mi-sm rev d1"><img src="IMG_3591.png" alt="Trattamento"><div class="mi-ov"><span class="mi-lbl">Il Nostro Studio</span></div></div>
-        <div class="mi mi-sm rev d2"><img src="IMG_8507.png" alt="Sala blu"><div class="mi-ov"><span class="mi-lbl">Precisione</span></div></div>
-        <div class="mi mi-sm rev"><img src="IMG_3637.png" alt="Intervento"><div class="mi-ov"><span class="mi-lbl">Esperienza</span></div></div>
-        <div class="mi mi-sm rev d2"><img src="IMG_3635.png" alt="Visita"><div class="mi-ov"><span class="mi-lbl">Sala Principale</span></div></div>
-        
         <div class="mi mi-sm rev d1">
+            <img src="IMG_3591.png" alt="Trattamento">
+            <div class="mi-ov"><span class="mi-lbl">Il Nostro Studio</span></div>
+        </div>
+        
+        <div class="mi mi-sm rev d2">
             <video autoplay muted loop playsinline src="video2.mp4" poster="poster2.jpg" style="width:100%;height:100%;object-fit:cover;display:block;"></video>
             <div class="mi-ov"><span class="mi-lbl">Sala Secondaria</span></div>
+        </div>
+        
+        <div class="mi mi-sm rev">
+            <img src="IMG_3637.png" alt="Intervento">
+            <div class="mi-ov"><span class="mi-lbl">Precisione</span></div>
+        </div>
+        
+        <div class="mi mi-sm rev d2">
+            <img src="IMG_3635.png" alt="Visita">
+            <div class="mi-ov"><span class="mi-lbl">Sala Principale</span></div>
         </div>
     </div>
 </section>
@@ -186,32 +196,4 @@
                 <p class="fb-name">Oris<span>Cura</span></p>
                 <p class="fb-desc">Studio di Odontoiatria Specialistica SRL/STP. Dir. San. Dr. Cataldo Grammatica – N. 388 Albo Odontoiatri BAT.</p>
             </div>
-            <div class="fc"><h4>Servizi</h4><ul><li><a href="#servizi">Igiene Dentale</a></li><li><a href="#servizi">Ortodonzia</a></li><li><a href="#servizi">Implantologia</a></li><li><a href="#servizi">Endodonzia</a></li><li><a href="#servizi">Estetica del Sorriso</a></li></ul></div>
-            <div class="fc"><h4>Contatti</h4><ul><li><a href="tel:+390808170385">080 817 0385</a></li><li><a href="tel:+393806881599">380 688 1599</a></li><li><a href="mailto:oriscura10@gmail.com">oriscura10@gmail.com</a></li><li><a href="#">Via M.R. Imbriani, 72 – Corato</a></li></ul></div>
-        </div>
-        <div class="ft-bot">
-            <p>© 2026 OrisCura SRL/STP – Tutti i diritti riservati.</p>
-            <div class="soc">
-                <a href="https://www.instagram.com/oris_cura/" class="sb" target="_blank"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-                <a href="https://www.instagram.com/dr.aldogrammatica/" class="sb" target="_blank"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<script>
-const burger=document.getElementById('burger'),mn=document.getElementById('mob-nav');
-burger.addEventListener('click',()=>{burger.classList.toggle('open');mn.classList.toggle('open');});
-document.querySelectorAll('.ml').forEach(l=>l.addEventListener('click',()=>{burger.classList.remove('open');mn.classList.remove('open');}));
-const slides=document.querySelectorAll('.slide'),dots=document.querySelectorAll('.dot');
-let cur=0;
-function goTo(i){slides[cur].classList.remove('active');dots[cur].classList.remove('active');cur=i;slides[cur].classList.add('active');dots[cur].classList.add('active');}
-dots.forEach(d=>d.addEventListener('click',()=>goTo(+d.dataset.i)));
-setInterval(()=>goTo((cur+1)%slides.length),4500);
-const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}});},{threshold:.1});
-document.querySelectorAll('.rev').forEach(el=>ro.observe(el));
-const hdr=document.getElementById('hdr');
-window.addEventListener('scroll',()=>{hdr.style.background=window.scrollY>60?'rgba(10,10,10,.98)':'rgba(10,10,10,.93)';},{passive:true});
-</script>
-</body>
-</html>
+            <div class="fc"><h4>Servizi</h4><ul><li><a href="#servizi">Igiene Dentale</a></li><li>
