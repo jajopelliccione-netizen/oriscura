@@ -11,7 +11,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;display:flex;
 .logo-img{height:34px;width:auto;object-fit:contain;filter:brightness(0) invert(1);flex-shrink:0}
 .logo-wm{display:flex;flex-direction:column;line-height:1;gap:3px}
 .logo-nm{font-family:'Barlow Condensed',sans-serif;font-size:1.35rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;line-height:1}
-.logo-nm .oc{color:#3ab5d8}
+.logo-nm .oc{color:var(--blue-l)}
 .logo-nm .oc2{color:#fff}
 .logo-sb{font-size:.54rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);font-weight:500}
 .nav-links{display:flex;list-style:none;gap:2px;align-items:center}
@@ -40,11 +40,11 @@ header{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;display:flex;
 .s3{background-image:url('IMG_3636.png')}
 .s4{background-image:url('IMG_3637.png')}
 .hero-body{position:relative;z-index:10;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 68px;max-width:1240px;margin:0 auto;width:100%}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(29,71,186,.2);border:1px solid rgba(58,181,216,.5);padding:5px 14px;border-radius:100px;margin-bottom:18px;width:fit-content}
-.hero-tag span{font-size:.7rem;color:#3ab5d8;letter-spacing:2.5px;text-transform:uppercase;font-weight:600}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(29,71,186,.2);border:1px solid var(--blue-l);padding:5px 14px;border-radius:100px;margin-bottom:18px;width:fit-content}
+.hero-tag span{font-size:.7rem;color:var(--blue-l);letter-spacing:2.5px;text-transform:uppercase;font-weight:600}
 .hero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(3rem,7vw,6.5rem);font-weight:800;color:#fff;line-height:.95;letter-spacing:-.5px;text-transform:uppercase;margin-bottom:22px}
 .hero h1 .il{display:block;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:.55em;letter-spacing:1px;text-transform:none;color:rgba(255,255,255,.7);margin-bottom:4px}
-.hero h1 .ac{color:#3ab5d8}
+.hero h1 .ac{color:var(--blue-l)}
 .hero-foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
 .btn-blue{background:var(--blue);color:#fff;padding:14px 30px;border-radius:8px;font-weight:600;font-size:.9rem;transition:background .2s,transform .15s;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 16px rgba(29,71,186,.4)}
@@ -53,7 +53,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;display:flex;
 .btn-ol:hover{border-color:#fff;background:rgba(255,255,255,.14)}
 .dots{display:flex;gap:8px;align-items:center}
 .dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:all .3s}
-.dot.active{width:24px;border-radius:3px;background:#3ab5d8}
+.dot.active{width:24px;border-radius:3px;background:var(--blue-l)}
 
 /* INFO BAND */
 .iband{background:var(--navy);padding:16px 0}
