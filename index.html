@@ -3,1246 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OrisCura – Studio di Odontoiatria Specialistica | Dr. Cataldo Grammatica</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --navy: #0a1f44;
-            --blue: #1a56db;
-            --blue-mid: #2563eb;
-            --gold: #c9a94e;
-            --gold-light: #e8d28a;
-            --white: #ffffff;
-            --cream: #f8f6f0;
-            --stone: #e8e2d6;
-            --text: #1a1a2e;
-            --text-light: #6b7280;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            color: var(--text);
-            background: var(--white);
-            overflow-x: hidden;
-        }
-
-        /* ===== HEADER ===== */
-        header {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 100;
-            background: rgba(10, 31, 68, 0.97);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(201,169,78,0.3);
-            transition: all 0.3s ease;
-        }
-
-        .header-inner {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 32px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            text-decoration: none;
-        }
-
-        .logo img {
-            height: 54px;
-            width: auto;
-            filter: brightness(0) invert(1);
-        }
-
-        .logo-text h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.35rem;
-            color: var(--white);
-            font-weight: 600;
-            line-height: 1.1;
-        }
-
-        .logo-text span {
-            font-size: 0.7rem;
-            color: var(--gold);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 500;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 4px;
-        }
-
-        nav ul li a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            font-size: 0.88rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            padding: 8px 16px;
-            border-radius: 6px;
-            transition: all 0.2s;
-        }
-
-        nav ul li a:hover {
-            color: var(--white);
-            background: rgba(255,255,255,0.08);
-        }
-
-        .nav-cta {
-            background: var(--gold) !important;
-            color: var(--navy) !important;
-            font-weight: 600 !important;
-            border-radius: 6px;
-        }
-
-        .nav-cta:hover {
-            background: var(--gold-light) !important;
-        }
-
-        /* ===== HERO ===== */
-        .hero {
-            position: relative;
-            height: 100vh;
-            min-height: 700px;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            background: url('IMG_8504.png') center center / cover no-repeat;
-        }
-
-        .hero-bg::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(10,31,68,0.88) 0%, rgba(10,31,68,0.55) 60%, rgba(10,31,68,0.3) 100%);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 32px;
-            padding-top: 80px;
-        }
-
-        .hero-eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(201,169,78,0.15);
-            border: 1px solid rgba(201,169,78,0.4);
-            padding: 6px 16px;
-            border-radius: 100px;
-            margin-bottom: 28px;
-            animation: fadeUp 0.8s ease both;
-        }
-
-        .hero-eyebrow span {
-            font-size: 0.75rem;
-            color: var(--gold);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .hero h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.4rem, 5vw, 4rem);
-            color: var(--white);
-            font-weight: 700;
-            line-height: 1.15;
-            max-width: 700px;
-            margin-bottom: 24px;
-            animation: fadeUp 0.8s 0.15s ease both;
-        }
-
-        .hero h2 em {
-            font-style: italic;
-            color: var(--gold);
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            color: rgba(255,255,255,0.75);
-            max-width: 520px;
-            line-height: 1.7;
-            margin-bottom: 40px;
-            animation: fadeUp 0.8s 0.3s ease both;
-            font-weight: 300;
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            animation: fadeUp 0.8s 0.45s ease both;
-        }
-
-        .btn-primary {
-            background: var(--gold);
-            color: var(--navy);
-            padding: 14px 32px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            letter-spacing: 0.3px;
-            transition: all 0.25s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-primary:hover {
-            background: var(--gold-light);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(201,169,78,0.35);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            padding: 14px 32px;
-            border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.35);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.25s;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.08);
-            border-color: rgba(255,255,255,0.6);
-        }
-
-        .hero-stats {
-            position: absolute;
-            bottom: 48px;
-            right: 48px;
-            z-index: 2;
-            display: flex;
-            gap: 32px;
-            animation: fadeUp 0.8s 0.6s ease both;
-        }
-
-        .stat {
-            text-align: center;
-            background: rgba(255,255,255,0.07);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.12);
-            padding: 20px 28px;
-            border-radius: 12px;
-        }
-
-        .stat-num {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--gold);
-            font-weight: 700;
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.6);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* ===== INTRO BAND ===== */
-        .intro-band {
-            background: var(--navy);
-            padding: 24px 0;
-        }
-
-        .intro-band-inner {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 48px;
-            flex-wrap: wrap;
-        }
-
-        .band-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: rgba(255,255,255,0.8);
-            font-size: 0.9rem;
-        }
-
-        .band-item svg {
-            color: var(--gold);
-            flex-shrink: 0;
-        }
-
-        /* ===== SECTION BASE ===== */
-        section { scroll-margin-top: 80px; }
-
-        .section-label {
-            font-size: 0.72rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--gold);
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-            font-weight: 700;
-            line-height: 1.2;
-            color: var(--navy);
-        }
-
-        .section-title em {
-            font-style: italic;
-            color: var(--blue);
-        }
-
-        /* ===== ABOUT / DOCTOR ===== */
-        .about {
-            padding: 100px 0;
-            background: var(--cream);
-        }
-
-        .about-inner {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 32px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .about-img-wrap {
-            position: relative;
-        }
-
-        .about-img-main {
-            width: 100%;
-            aspect-ratio: 4/5;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: 0 32px 80px rgba(10,31,68,0.18);
-        }
-
-        .about-img-badge {
-            position: absolute;
-            bottom: -24px;
-            left: -24px;
-            background: var(--navy);
-            color: white;
-            padding: 24px 28px;
-            border-radius: 16px;
-            box-shadow: 0 16px 40px rgba(10,31,68,0.25);
-        }
-
-        .about-img-badge .badge-num {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--gold);
-            display: block;
-            font-weight: 700;
-        }
-
-        .about-img-badge .badge-text {
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.7);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .about-content { padding-bottom: 32px; }
-
-        .about-content .section-title { margin-bottom: 24px; }
-
-        .about-content p {
-            font-size: 1.05rem;
-            color: var(--text-light);
-            line-height: 1.8;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
-
-        .about-credentials {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-top: 32px;
-        }
-
-        .credential {
-            background: var(--white);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid var(--stone);
-        }
-
-        .credential-title {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-light);
-            margin-bottom: 4px;
-        }
-
-        .credential-value {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--navy);
-        }
-
-        /* ===== SERVICES ===== */
-        .services {
-            padding: 100px 0;
-            background: var(--white);
-        }
-
-        .services-header {
-            max-width: 1280px;
-            margin: 0 auto 60px;
-            padding: 0 32px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-        }
-
-        .services-grid {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 32px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .service-card {
-            background: var(--white);
-            border: 1px solid var(--stone);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            cursor: default;
-        }
-
-        .service-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 24px 60px rgba(10,31,68,0.1);
-            border-color: transparent;
-        }
-
-        .service-card-img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .service-card-body {
-            padding: 28px;
-        }
-
-        .service-icon {
-            width: 44px;
-            height: 44px;
-            background: rgba(26,86,219,0.08);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 16px;
-        }
-
-        .service-card-body h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: var(--navy);
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .service-card-body p {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            line-height: 1.65;
-        }
-
-        /* ===== GALLERY ===== */
-        .gallery {
-            padding: 100px 0;
-            background: var(--navy);
-        }
-
-        .gallery-header {
-            max-width: 1280px;
-            margin: 0 auto 48px;
-            padding: 0 32px;
-        }
-
-        .gallery-header .section-label { color: var(--gold); }
-        .gallery-header .section-title { color: var(--white); }
-
-        .gallery-grid {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 32px;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: auto auto;
-            gap: 16px;
-        }
-
-        .gallery-item {
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.04);
-        }
-
-        .gallery-item.tall {
-            grid-row: span 2;
-        }
-
-        .gallery-item:nth-child(1) { aspect-ratio: 1; }
-        .gallery-item:nth-child(2) { aspect-ratio: 1; }
-        .gallery-item:nth-child(3) { aspect-ratio: 3/4; grid-row: span 2; }
-        .gallery-item:nth-child(4) { aspect-ratio: 1; }
-        .gallery-item:nth-child(5) { aspect-ratio: 1; }
-        .gallery-item:nth-child(6) { aspect-ratio: 1; }
-        .gallery-item:nth-child(7) { aspect-ratio: 1; }
-
-        /* ===== EQUIPMENT ===== */
-        .equipment {
-            padding: 100px 0;
-            background: var(--cream);
-        }
-
-        .equipment-inner {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 32px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .equipment-imgs {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .equipment-imgs img {
-            border-radius: 14px;
-            width: 100%;
-            aspect-ratio: 1;
-            object-fit: cover;
-            box-shadow: 0 8px 24px rgba(10,31,68,0.1);
-        }
-
-        .equipment-imgs img:first-child {
-            grid-column: span 2;
-            aspect-ratio: 16/9;
-        }
-
-        .equipment-content .section-title { margin-bottom: 20px; }
-
-        .equipment-content p {
-            font-size: 1.05rem;
-            color: var(--text-light);
-            line-height: 1.8;
-            margin-bottom: 32px;
-            font-weight: 300;
-        }
-
-        .equip-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .equip-list li {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.95rem;
-            color: var(--text);
-            font-weight: 500;
-        }
-
-        .equip-list li::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background: var(--gold);
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        /* ===== MAP / ABOUT SECTION ===== */
-        .location {
-            padding: 100px 0;
-            background: var(--white);
-        }
-
-        .location-inner {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 32px;
-            display: grid;
-            grid-template-columns: 1fr 1.6fr;
-            gap: 64px;
-            align-items: start;
-        }
-
-        .location-info { padding-top: 8px; }
-
-        .location-info .section-title { margin-bottom: 24px; }
-
-        .contact-item {
-            display: flex;
-            gap: 16px;
-            align-items: flex-start;
-            padding: 20px 0;
-            border-bottom: 1px solid var(--stone);
-        }
-
-        .contact-item:last-of-type { border-bottom: none; }
-
-        .contact-item-icon {
-            width: 42px;
-            height: 42px;
-            background: rgba(26,86,219,0.08);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .contact-item-label {
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-light);
-            margin-bottom: 4px;
-        }
-
-        .contact-item-value {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--navy);
-            line-height: 1.5;
-        }
-
-        .contact-item-value a {
-            color: var(--navy);
-            text-decoration: none;
-        }
-
-        .contact-item-value a:hover { color: var(--blue); }
-
-        .map-wrap {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(10,31,68,0.12);
-        }
-
-        .map-wrap iframe {
-            width: 100%;
-            height: 480px;
-            border: none;
-            display: block;
-        }
-
-        /* ===== CTA SECTION ===== */
-        .cta-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--navy) 0%, #1a3a7a 100%);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -10%;
-            width: 50%;
-            height: 200%;
-            background: radial-gradient(ellipse, rgba(201,169,78,0.1) 0%, transparent 70%);
-        }
-
-        .cta-section::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 50%;
-            height: 200%;
-            background: radial-gradient(ellipse, rgba(26,86,219,0.15) 0%, transparent 70%);
-        }
-
-        .cta-inner {
-            position: relative;
-            z-index: 2;
-            max-width: 640px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-
-        .cta-section .section-label { color: var(--gold); margin-bottom: 16px; }
-
-        .cta-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-            color: var(--white);
-            margin-bottom: 20px;
-        }
-
-        .cta-section p {
-            color: rgba(255,255,255,0.65);
-            font-size: 1.05rem;
-            margin-bottom: 40px;
-            line-height: 1.7;
-        }
-
-        .cta-btns {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            background: #060f22;
-            padding: 48px 0 28px;
-        }
-
-        .footer-inner {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 32px;
-        }
-
-        .footer-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 48px;
-            padding-bottom: 40px;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            flex-wrap: wrap;
-        }
-
-        .footer-brand h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: var(--white);
-            margin-bottom: 8px;
-        }
-
-        .footer-brand p {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.45);
-            max-width: 280px;
-            line-height: 1.6;
-        }
-
-        .footer-links h4 {
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--gold);
-            margin-bottom: 16px;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links ul li a {
-            color: rgba(255,255,255,0.55);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-
-        .footer-links ul li a:hover { color: var(--white); }
-
-        .footer-bottom {
-            padding-top: 28px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .footer-bottom p {
-            font-size: 0.78rem;
-            color: rgba(255,255,255,0.3);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 12px;
-        }
-
-        .social-link {
-            width: 38px;
-            height: 38px;
-            border-radius: 8px;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: rgba(255,255,255,0.6);
-            font-size: 0.85rem;
-            transition: all 0.2s;
-        }
-
-        .social-link:hover {
-            background: var(--gold);
-            color: var(--navy);
-            border-color: var(--gold);
-        }
-
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(24px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) {
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
-            .gallery-grid { grid-template-columns: repeat(3, 1fr); }
-            .about-inner, .equipment-inner, .location-inner { grid-template-columns: 1fr; gap: 48px; }
-            .about-img-wrap { max-width: 500px; }
-        }
-
-        @media (max-width: 768px) {
-            .header-inner { padding: 0 20px; }
-            nav { display: none; }
-            .hero-stats { display: none; }
-            .services-grid { grid-template-columns: 1fr; padding: 0 20px; }
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); padding: 0 20px; }
-            .gallery-item:nth-child(3) { grid-row: span 1; aspect-ratio: 1; }
-            .services-header { flex-direction: column; align-items: flex-start; gap: 12px; padding: 0 20px; }
-            .about-credentials { grid-template-columns: 1fr; }
-            .equipment-imgs img:first-child { aspect-ratio: 4/3; }
-        }
-    </style>
+    <title>OrisCura – Studio di Odontoiatria Specialistica | Corato</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800&family=Barlow:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles2.css">
 </head>
 <body>
-
-<!-- ===== HEADER ===== -->
-<header>
-    <div class="header-inner">
-        <a href="#home" class="logo">
-            <img src="Dr._Aldo_Grammatica-removebg-preview.png" alt="OrisCura logo">
-            <div class="logo-text">
-                <h1>OrisCura</h1>
-                <span>Studio Odontoiatrico</span>
-            </div>
-        </a>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#servizi">Servizi</a></li>
-                <li><a href="#studio">Lo Studio</a></li>
-                <li><a href="#dove-siamo">Dove Siamo</a></li>
-                <li><a href="#dove-siamo" class="nav-cta">Prenota</a></li>
-            </ul>
-        </nav>
-    </div>
+<!-- HEADER -->
+<header id="hdr">
+    <a href="#home" class="logo">
+        <div class="logo-icon">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M12 2C9 2 6 4 6 7c0 1.5.5 2.8 1.2 3.8C5.5 12.2 5 14 5 16c0 3.3 2.7 6 6 6 .7 0 1.4-.1 2-.4.6.3 1.3.4 2 .4 3.3 0 6-2.7 6-6 0-2-.5-3.8-2.2-5.2C19.5 9.8 20 8.5 20 7c0-3-3-5-6-5z"/></svg>
+        </div>
+        <div class="logo-wm">
+            <span class="nm">OrisCura</span>
+            <span class="sb-tag">Odontoiatria Specialistica</span>
+        </div>
+    </a>
+    <ul class="nav-links">
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#studio">Studio</a></li>
+        <li><a href="#dove-siamo">Dove Siamo</a></li>
+        <li><a href="#dove-siamo" class="nav-cta">Prenota</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
 </header>
+<nav class="mob-nav" id="mob-nav">
+    <a href="#servizi" class="ml">Servizi</a>
+    <a href="#studio" class="ml">Lo Studio</a>
+    <a href="#dove-siamo" class="ml">Dove Siamo</a>
+    <a href="#dove-siamo" class="ml">→ Prenota una Visita</a>
+</nav>
 
-<!-- ===== HERO ===== -->
+<!-- HERO -->
 <section id="home" class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-        <div class="hero-eyebrow">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="6" fill="#c9a94e"/></svg>
-            <span>Studio di Odontoiatria Specialistica • Corato (BAT)</span>
-        </div>
-        <h2>Il Tuo Sorriso<br>È la Nostra<br><em>Missione</em></h2>
-        <p>Cure odontoiatriche d'eccellenza in uno studio specialistico storico. Tecnologie avanzate, mani esperte, un ambiente che mette a proprio agio.</p>
-        <div class="hero-btns">
-            <a href="#dove-siamo" class="btn-primary">
-                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M8 6L21 12 8 18V6z"/></svg>
-                Prenota una Visita
-            </a>
-            <a href="#servizi" class="btn-secondary">Scopri i Servizi</a>
-        </div>
+    <div class="slides-wrap">
+        <div class="slide s1 active"></div>
+        <div class="slide s2"></div>
+        <div class="slide s3"></div>
+        <div class="slide s4"></div>
     </div>
-    <div class="hero-stats">
-        <div class="stat">
-            <span class="stat-num">20+</span>
-            <span class="stat-label">Anni di Esperienza</span>
+    <div class="hero-body">
+        <div class="hero-tag">
+            <svg width="8" height="8"><circle cx="4" cy="4" r="4" fill="#00c4b1"/></svg>
+            <span>Studio Dentistico · Corato, Puglia</span>
         </div>
-        <div class="stat">
-            <span class="stat-num">6</span>
-            <span class="stat-label">Specializzazioni</span>
-        </div>
-        <div class="stat">
-            <span class="stat-num">2</span>
-            <span class="stat-label">Sale Operative</span>
+        <h1>
+            <span class="il">Il tuo sorriso,</span>
+            La Nostra<br><span class="ac">Missione</span>
+        </h1>
+        <div class="hero-foot">
+            <div class="hero-btns">
+                <a href="#dove-siamo" class="btn-teal">
+                    <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M8 6L21 12 8 18V6z"/></svg>
+                    Prenota una Visita
+                </a>
+                <a href="#servizi" class="btn-ol">Scopri i Servizi</a>
+            </div>
+            <div class="dots">
+                <div class="dot active" data-i="0"></div>
+                <div class="dot" data-i="1"></div>
+                <div class="dot" data-i="2"></div>
+                <div class="dot" data-i="3"></div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- ===== BAND ===== -->
-<div class="intro-band">
-    <div class="intro-band-inner">
-        <div class="band-item">
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <span>Ambiente sterile certificato</span>
+<!-- INFO BAND -->
+<div class="iband">
+    <div class="iband-in">
+        <div class="ii">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span><strong>Lun–Ven</strong> 10–12 / 16–19</span>
         </div>
-        <div class="band-item">
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-            <span>Lun–Ven: 10:00–12:00 / 16:00–19:00</span>
+        <div class="ii">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.36-.36a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <span><strong>080 817 0385</strong> / 380 688 1599</span>
         </div>
-        <div class="band-item">
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.36-.36a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            <span>080 817 0385 / 380 688 1599</span>
+        <div class="ii">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Via M.R. Imbriani, 72 – <strong>Corato</strong></span>
         </div>
-        <div class="band-item">
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Via M.R. Imbriani, 72 – Corato</span>
+        <div class="ii">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            <span>@<strong>oris_cura</strong></span>
         </div>
     </div>
 </div>
 
-
-<!-- ===== SERVICES ===== -->
+<!-- SERVICES -->
 <section id="servizi" class="services">
-    <div class="services-header fade-in">
+    <div class="sh rev">
         <div>
-            <p class="section-label">Cosa Offriamo</p>
-            <h2 class="section-title">I Nostri <em>Servizi</em></h2>
+            <p class="eyebrow">Cosa Offriamo</p>
+            <h2 class="st">I Nostri <em>Servizi</em></h2>
         </div>
-        <p style="max-width:380px; color:var(--text-light); font-size:0.95rem; line-height:1.6;">Trattamenti su misura per ogni esigenza, dalla prevenzione alla chirurgia avanzata.</p>
+        <p class="sdesc">Trattamenti su misura, dalla prevenzione alla chirurgia specialistica, con tecnologie di ultima generazione.</p>
     </div>
-    <div class="services-grid">
-        <div class="service-card fade-in">
-            <img src="3F3A3472.jpg" alt="Igiene Dentale" class="service-card-img">
-            <div class="service-card-body">
-                <div class="service-icon">
-                    <svg width="20" height="20" fill="none" stroke="#1a56db" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                </div>
-                <h3>Igiene Dentale</h3>
-                <p>Pulizia professionale per rimuovere placca e tartaro. Prevenzione come base di ogni sorriso sano e duraturo.</p>
-            </div>
-        </div>
-        <div class="service-card fade-in">
-            <img src="17-instagram.jpg" alt="Ortodonzia" class="service-card-img">
-            <div class="service-card-body">
-                <div class="service-icon">
-                    <svg width="20" height="20" fill="none" stroke="#1a56db" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-                </div>
-                <h3>Ortodonzia</h3>
-                <p>Trattamenti avanzati per correggere disallineamenti e ottenere un sorriso esteticamente perfetto e funzionale.</p>
-            </div>
-        </div>
-        <div class="service-card fade-in">
-            <img src="impiantologA.jpg" alt="Implantologia" class="service-card-img">
-            <div class="service-card-body">
-                <div class="service-icon">
-                    <svg width="20" height="20" fill="none" stroke="#1a56db" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                </div>
-                <h3>Implantologia</h3>
-                <p>Impianti dentali di alta qualità per ripristinare la completezza del sorriso con soluzioni naturali e durature.</p>
-            </div>
-        </div>
-        <div class="service-card fade-in">
-            <img src="endodonzia-elite-odontoiatrica-1024x683.jpg" alt="Endodonzia" class="service-card-img">
-            <div class="service-card-body">
-                <div class="service-icon">
-                    <svg width="20" height="20" fill="none" stroke="#1a56db" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-                </div>
-                <h3>Endodonzia</h3>
-                <p>Trattamento del canale radicolare per salvare il dente naturale. Procedure accurate e minimamente invasive.</p>
-            </div>
-        </div>
-        <div class="service-card fade-in">
-            <img src="prima-visita-dentistica.jpg" alt="Prima Visita" class="service-card-img">
-            <div class="service-card-body">
-                <div class="service-icon">
-                    <svg width="20" height="20" fill="none" stroke="#1a56db" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/></svg>
-                </div>
-                <h3>Prima Visita</h3>
-                <p>Un colloquio approfondito per valutare la salute orale complessiva e definire un piano di cura personalizzato.</p>
-            </div>
-        </div>
-        <div class="service-card fade-in">
-            <img src="thumbnail_IMG_5260.jpg" alt="Disturbi ATM ed Estetica" class="service-card-img">
-            <div class="service-card-body">
-                <div class="service-icon">
-                    <svg width="20" height="20" fill="none" stroke="#1a56db" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                </div>
-                <h3>Estetica del Sorriso</h3>
-                <p>Trattamenti estetici e gestione dei disturbi dell'ATM. Protesi e restauri per un sorriso bello e sano.</p>
-            </div>
-        </div>
+    <div class="sg">
+        <div class="sc rev"><img src="3F3A3472.jpg" alt="Igiene Dentale" class="sc-img"><div class="sc-body"><p class="sc-num">01</p><h3>Igiene Dentale</h3><p>Pulizia professionale per rimuovere placca e tartaro, base di ogni sorriso sano.</p></div></div>
+        <div class="sc rev d1"><img src="17-instagram.jpg" alt="Ortodonzia" class="sc-img"><div class="sc-body"><p class="sc-num">02</p><h3>Ortodonzia</h3><p>Allineamento dentale per un sorriso esteticamente perfetto e funzionale.</p></div></div>
+        <div class="sc rev d2"><img src="impiantologA.jpg" alt="Implantologia" class="sc-img"><div class="sc-body"><p class="sc-num">03</p><h3>Implantologia</h3><p>Impianti di alta qualità per ripristinare il sorriso con soluzioni naturali.</p></div></div>
+    </div>
+    <div class="sg2">
+        <div class="sc rev"><img src="endodonzia-elite-odontoiatrica-1024x683.jpg" alt="Endodonzia" class="sc-img"><div class="sc-body"><p class="sc-num">04</p><h3>Endodonzia</h3><p>Trattamento canalare per salvare il dente con precisione millimetrica.</p></div></div>
+        <div class="sc rev d1"><img src="prima-visita-dentistica.jpg" alt="Prima Visita" class="sc-img"><div class="sc-body"><p class="sc-num">05</p><h3>Prima Visita</h3><p>Valutazione completa e piano di cura personalizzato sul paziente.</p></div></div>
+        <div class="sc rev d2"><img src="thumbnail_IMG_5260.jpg" alt="Estetica" class="sc-img"><div class="sc-body"><p class="sc-num">06</p><h3>Estetica del Sorriso</h3><p>Protesi, disturbi ATM e trattamenti estetici per un sorriso armonioso.</p></div></div>
     </div>
 </section>
 
-<!-- ===== GALLERY ===== -->
-<section id="studio" class="gallery">
-    <div class="gallery-header fade-in">
-        <p class="section-label">Il Nostro Ambiente</p>
-        <h2 class="section-title" style="color:white;">Lo Studio <em style="color:var(--gold)">OrisCura</em></h2>
+<!-- MEDIA — sostituisci le img con tag video o iframe YouTube/Vimeo -->
+<section id="studio" class="media">
+    <div class="mh rev">
+        <p class="eyebrow">Lo Studio in Immagini</p>
+        <h2 class="st wh">Uno <em class="tl">Spazio</em> Unico</h2>
     </div>
-    <div class="gallery-grid">
-        <div class="gallery-item fade-in">
-            <img src="IMG_8505.png" alt="Sala operativa con volte in pietra">
+    <div class="mg">
+        <!-- VIDEO PRINCIPALE -->
+        <div class="mi mi-big rev">
+            <video autoplay muted loop playsinline src="video1.mp4" poster="poster1.jpg" style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+            <div class="mi-ov"><span class="mi-lbl">Lo Studio</span></div>
         </div>
-        <div class="gallery-item fade-in">
-            <img src="IMG_8507.png" alt="Sala operativa blu">
+        <!-- VIDEO 2 -->
+        <div class="mi mi-sm rev d1">
+            <video autoplay muted loop playsinline src="video2.mp4" poster="poster2.jpg" style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+            <div class="mi-ov"><span class="mi-lbl">Precisione</span></div>
         </div>
-        <div class="gallery-item fade-in">
-            <img src="IMG_3637.png" alt="Dottore al lavoro">
-        </div>
-        <div class="gallery-item fade-in">
-            <img src="IMG_3598.png" alt="Ingresso studio">
-        </div>
-        <div class="gallery-item fade-in">
-            <img src="IMG_8506.png" alt="Poltrona dentistica verde">
-        </div>
-        <div class="gallery-item fade-in">
-            <img src="IMG_3591.png" alt="Trattamento in corso">
-        </div>
-        <div class="gallery-item fade-in">
-            <img src="IMG_3635.png" alt="Visita dentistica">
-        </div>
+        <div class="mi mi-sm rev d2"><img src="IMG_8507.png" alt="Sala blu"><div class="mi-ov"><span class="mi-lbl">Tecnologia</span></div></div>
+        <div class="mi mi-sm rev"><img src="IMG_3637.png" alt="Intervento"><div class="mi-ov"><span class="mi-lbl">Esperienza</span></div></div>
+        <div class="mi mi-sm rev d1"><img src="IMG_3591.png" alt="Trattamento"><div class="mi-ov"><span class="mi-lbl">Cura</span></div></div>
+        <div class="mi mi-sm rev d2"><img src="IMG_3635.png" alt="Visita"><div class="mi-ov"><span class="mi-lbl">Paziente</span></div></div>
     </div>
 </section>
 
-<!-- ===== EQUIPMENT ===== -->
-<section class="equipment">
-    <div class="equipment-inner">
-        <div class="equipment-imgs fade-in">
+<!-- EQUIPMENT -->
+<section class="equip">
+    <div class="eq-in">
+        <div class="eq-imgs rev">
             <img src="IMG_8505.png" alt="Sala principale">
             <img src="IMG_8504.png" alt="DEXIS OPT">
-            <img src="IMG_8507.png" alt="Sala blu Miglionico">
+            <img src="IMG_8507.png" alt="Sala Miglionico">
         </div>
-        <div class="equipment-content fade-in">
-            <p class="section-label">Tecnologia</p>
-            <h2 class="section-title">Strumentazione<br><em>d'Avanguardia</em></h2>
-            <p>OrisCura investe continuamente in tecnologie diagnostiche e terapeutiche di nuova generazione per garantire ai pazienti trattamenti precisi, sicuri e confortevoli.</p>
-            <ul class="equip-list">
-                <li>Ortopantomografo DEXIS 3D – diagnosi ad alta risoluzione</li>
-                <li>Riuniti Miglionico Syncro con monitor integrato</li>
-                <li>Loupe di ingrandimento Zeiss per chirurgia di precisione</li>
-                <li>Scanner intraorale digitale</li>
-                <li>Sistema di sterilizzazione certificato</li>
-                <li>Ambienti climatizzati con volte storiche in pietra</li>
-            </ul>
+        <div class="eq-content rev d1">
+            <p class="eyebrow">Strumentazione</p>
+            <h2 class="st">Tecnologia<br><em>d'Avanguardia</em></h2>
+            <p>Investiamo in strumenti diagnostici di nuova generazione per trattamenti precisi, sicuri e confortevoli.</p>
+            <div class="tags">
+                <span class="tag">DEXIS Ortopantomografo 3D</span>
+                <span class="tag">Riunito Miglionico Syncro</span>
+                <span class="tag">Loupe Zeiss</span>
+                <span class="tag">Scanner intraorale</span>
+                <span class="tag">Sterilizzazione certificata</span>
+                <span class="tag">Sede storica in pietra</span>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- ===== DOVE SIAMO ===== -->
-<section id="dove-siamo" class="location">
-    <div class="location-inner">
-        <div class="location-info fade-in">
-            <p class="section-label">Contatti & Orari</p>
-            <h2 class="section-title">Vieni a<br><em>Trovarci</em></h2>
-
-            <div class="contact-item">
-                <div class="contact-item-icon">
-                    <svg width="18" height="18" fill="none" stroke="#1a56db" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                </div>
-                <div>
-                    <div class="contact-item-label">Indirizzo</div>
-                    <div class="contact-item-value">Via Matteo Renato Imbriani, 72<br>70033 Corato (BT), Puglia</div>
-                </div>
-            </div>
-
-            <div class="contact-item">
-                <div class="contact-item-icon">
-                    <svg width="18" height="18" fill="none" stroke="#1a56db" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.36-.36a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-                </div>
-                <div>
-                    <div class="contact-item-label">Telefono</div>
-                    <div class="contact-item-value">
-                        <a href="tel:+390808170385">080 817 0385</a> /
-                        <a href="tel:+393806881599"> 380 688 1599</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="contact-item">
-                <div class="contact-item-icon">
-                    <svg width="18" height="18" fill="none" stroke="#1a56db" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                </div>
-                <div>
-                    <div class="contact-item-label">Email</div>
-                    <div class="contact-item-value"><a href="mailto:cgrammatica@iol.it">cgrammatica@iol.it</a></div>
-                </div>
-            </div>
-
-            <div class="contact-item">
-                <div class="contact-item-icon">
-                    <svg width="18" height="18" fill="none" stroke="#1a56db" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                </div>
-                <div>
-                    <div class="contact-item-label">Orari</div>
-                    <div class="contact-item-value">Lun – Ven: 10:00–12:00 / 16:00–19:00<br><span style="font-weight:400;font-size:0.85rem;color:var(--text-light)">Solo su appuntamento</span></div>
-                </div>
-            </div>
+<!-- LOCATION -->
+<section id="dove-siamo" class="loc">
+    <div class="loc-in">
+        <div class="loc-info rev">
+            <p class="eyebrow">Contatti & Orari</p>
+            <h2 class="st">Vieni a<br><em>Trovarci</em></h2>
+            <div class="cr"><div class="ci"><svg width="17" height="17" fill="none" stroke="#009e8e" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><p class="cl">Indirizzo</p><p class="cv">Via M.R. Imbriani, 72<br>70033 Corato (BT)</p></div></div>
+            <div class="cr"><div class="ci"><svg width="17" height="17" fill="none" stroke="#009e8e" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.36-.36a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><div><p class="cl">Telefono</p><p class="cv"><a href="tel:+390808170385">080 817 0385</a> / <a href="tel:+393806881599">380 688 1599</a></p></div></div>
+            <div class="cr"><div class="ci"><svg width="17" height="17" fill="none" stroke="#009e8e" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><p class="cl">Email</p><p class="cv"><a href="mailto:cgrammatica@iol.it">cgrammatica@iol.it</a></p></div></div>
+            <div class="cr"><div class="ci"><svg width="17" height="17" fill="none" stroke="#009e8e" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><p class="cl">Orari</p><p class="cv">Lun–Ven: 10:00–12:00 / 16:00–19:00<br><small>Solo su appuntamento</small></p></div></div>
         </div>
-
-        <div class="map-wrap fade-in">
+        <div class="mframe rev d1">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3004.323321253266!2d16.409141575866002!3d41.14929577133117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13380f8aa5a36d75%3A0x75283965b4708489!2sOris%20Cura%20Srl%20%2F%20Stp!5e0!3m2!1sit!2sit!4v1724703948782!5m2!1sit!2sit" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
 </section>
 
-<!-- ===== CTA ===== -->
-<section class="cta-section">
-    <div class="cta-inner">
-        <p class="section-label">Inizia Adesso</p>
-        <h2>Prenota la Tua Prima Visita</h2>
-        <p>Contattaci per fissare un appuntamento. Il primo passo verso un sorriso sano è una telefonata.</p>
-        <div class="cta-btns">
-            <a href="tel:+390808170385" class="btn-primary">
-                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.36-.36a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-                Chiama Ora
-            </a>
-            <a href="mailto:cgrammatica@iol.it" class="btn-secondary">Scrivi una Email</a>
-        </div>
+<!-- CTA -->
+<section class="cta">
+    <h2>Prenota la Tua Visita</h2>
+    <p>Contattaci per fissare un appuntamento. Il primo passo verso un sorriso sano è una telefonata.</p>
+    <div class="cta-row">
+        <a href="tel:+390808170385" class="btn-w"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.36-.36a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Chiama Ora</a>
+        <a href="mailto:cgrammatica@iol.it" class="btn-g">Scrivi una Email</a>
     </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
+<!-- FOOTER -->
 <footer>
-    <div class="footer-inner">
-        <div class="footer-top">
-            <div class="footer-brand">
-                <h3>OrisCura SRL/STP</h3>
-                <p>Studio di Odontoiatria Specialistica. Dir. San. Dr. Cataldo Grammatica – N. 388 Albo Odontoiatri BAT.</p>
+    <div class="ft-in">
+        <div class="ft-grid">
+            <div>
+                <p class="fb-name">Oris<span>Cura</span></p>
+                <p class="fb-desc">Studio di Odontoiatria Specialistica SRL/STP. Dir. San. Dr. Cataldo Grammatica – N. 388 Albo Odontoiatri BAT.</p>
             </div>
-            <div class="footer-links">
-                <h4>Servizi</h4>
-                <ul>
-                    <li><a href="#servizi">Igiene Dentale</a></li>
-                    <li><a href="#servizi">Ortodonzia</a></li>
-                    <li><a href="#servizi">Implantologia</a></li>
-                    <li><a href="#servizi">Endodonzia</a></li>
-                    <li><a href="#servizi">Estetica del Sorriso</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Contatti</h4>
-                <ul>
-                    <li><a href="tel:+390808170385">080 817 0385</a></li>
-                    <li><a href="tel:+393806881599">380 688 1599</a></li>
-                    <li><a href="mailto:cgrammatica@iol.it">cgrammatica@iol.it</a></li>
-                    <li><a href="#">Via M.R. Imbriani, 72 – Corato</a></li>
-                </ul>
-            </div>
+            <div class="fc"><h4>Servizi</h4><ul><li><a href="#servizi">Igiene Dentale</a></li><li><a href="#servizi">Ortodonzia</a></li><li><a href="#servizi">Implantologia</a></li><li><a href="#servizi">Endodonzia</a></li><li><a href="#servizi">Estetica del Sorriso</a></li></ul></div>
+            <div class="fc"><h4>Contatti</h4><ul><li><a href="tel:+390808170385">080 817 0385</a></li><li><a href="tel:+393806881599">380 688 1599</a></li><li><a href="mailto:cgrammatica@iol.it">cgrammatica@iol.it</a></li><li><a href="#">Via M.R. Imbriani, 72 – Corato</a></li></ul></div>
         </div>
-        <div class="footer-bottom">
+        <div class="ft-bot">
             <p>© 2025 OrisCura SRL/STP – Tutti i diritti riservati.</p>
-            <div class="footer-social">
-                <a href="https://www.instagram.com/oris_cura/" class="social-link" target="_blank" title="Instagram oris_cura">
-                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-                </a>
-                <a href="https://www.instagram.com/dr.aldogrammatica/" class="social-link" target="_blank" title="Instagram dr.aldogrammatica">
-                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                </a>
+            <div class="soc">
+                <a href="https://www.instagram.com/oris_cura/" class="sb" target="_blank"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+                <a href="https://www.instagram.com/dr.aldogrammatica/" class="sb" target="_blank"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
             </div>
         </div>
     </div>
 </footer>
 
 <script>
-    // Scroll-triggered fade animations
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, i) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.classList.add('visible');
-                }, 100);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // Header scroll effect
-    window.addEventListener('scroll', () => {
-        const header = document.querySelector('header');
-        if (window.scrollY > 50) {
-            header.style.boxShadow = '0 4px 24px rgba(0,0,0,0.25)';
-        } else {
-            header.style.boxShadow = 'none';
-        }
-    });
+const burger=document.getElementById('burger'),mn=document.getElementById('mob-nav');
+burger.addEventListener('click',()=>{burger.classList.toggle('open');mn.classList.toggle('open');});
+document.querySelectorAll('.ml').forEach(l=>l.addEventListener('click',()=>{burger.classList.remove('open');mn.classList.remove('open');}));
+const slides=document.querySelectorAll('.slide'),dots=document.querySelectorAll('.dot');
+let cur=0;
+function goTo(i){slides[cur].classList.remove('active');dots[cur].classList.remove('active');cur=i;slides[cur].classList.add('active');dots[cur].classList.add('active');}
+dots.forEach(d=>d.addEventListener('click',()=>goTo(+d.dataset.i)));
+setInterval(()=>goTo((cur+1)%slides.length),4500);
+const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('.rev').forEach(el=>ro.observe(el));
+const hdr=document.getElementById('hdr');
+window.addEventListener('scroll',()=>{hdr.style.background=window.scrollY>60?'rgba(10,10,10,.98)':'rgba(10,10,10,.93)';},{passive:true});
 </script>
 </body>
 </html>
