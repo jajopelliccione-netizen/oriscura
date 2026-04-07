@@ -9,13 +9,13 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Barlow',sans-serif;background:#fff;color:#111;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-:root{--black:#0a0a0a;--white:#fff;--blue:#1d47ba;--blue-l:#2a5fd4;--navy:#0b1f3a;--cream:#f7f5f0;--mid:#f0efed;--grey:#6b7280;--border:#e5e5e5;--cyan:#3ab5d8}
+:root{--black:#0a0a0a;--white:#fff;--teal:#58b0b3;--teal-dk:#2e8a8d;--teal-xdk:#1d6568;--navy:#081e1f;--cream:#f7f5f0;--mid:#f0efed;--grey:#6b7280;--border:#e5e5e5}
 img{display:block;max-width:100%}
 a{text-decoration:none;color:inherit}
 
 /* ══ HEADER ══ */
 header{position:fixed;top:0;left:0;right:0;z-index:200;height:80px;display:flex;align-items:center;padding:0 48px;background:transparent;justify-content:space-between;transition:background .4s,box-shadow .4s,height .4s,padding .4s}
-header.scrolled{background:rgba(6,8,20,.93);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(58,181,216,.12),0 12px 40px rgba(0,0,0,.5);height:60px;padding:0 40px}
+header.scrolled{background:rgba(6,8,20,.93);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(88,176,179,.12),0 12px 40px rgba(0,0,0,.5);height:60px;padding:0 40px}
 .logo{display:flex;align-items:center;gap:6px;flex-shrink:0}
 .logo-img{height:46px;width:auto;filter:none;opacity:1;flex-shrink:0;transition:height .4s;margin-right:-4px}
 header.scrolled .logo-img{height:36px}
@@ -25,25 +25,25 @@ header.scrolled .logo-divider{height:26px}
 .logo-nm{font-family:'Barlow Condensed',sans-serif;font-size:1.65rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;line-height:1;transition:font-size .4s}
 header.scrolled .logo-nm{font-size:1.3rem}
 .logo-nm .oc{color:#fff!important}
-.logo-nm .oc2{color:#3ab5d8!important}
+.logo-nm .oc2{color:#58b0b3!important}
 .logo-sb{font-size:.5rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:500;transition:opacity .4s}
 header.scrolled .logo-sb{opacity:.55}
 .nav-links{display:flex;list-style:none;gap:6px;align-items:center}
 .nav-links li a{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.6);letter-spacing:1.5px;text-transform:uppercase;padding:8px 16px;border-radius:100px;border:1px solid transparent;transition:color .2s,border-color .2s,background .2s}
 .nav-links li a:hover{color:#fff;border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06)}
 .nav-links li a::after{display:none}
-.nav-cta{background:rgba(58,181,216,.15)!important;color:#3ab5d8!important;border:1px solid rgba(58,181,216,.5)!important;font-weight:700!important;border-radius:100px!important;padding:9px 22px!important;letter-spacing:1px!important;transition:all .25s!important;box-shadow:0 0 20px rgba(58,181,216,.1)}
-.nav-cta:hover{background:rgba(58,181,216,.25)!important;border-color:rgba(58,181,216,.8)!important;color:#fff!important;box-shadow:0 0 28px rgba(58,181,216,.25)}
+.nav-cta{background:rgba(88,176,179,.15)!important;color:#58b0b3!important;border:1px solid rgba(88,176,179,.5)!important;font-weight:700!important;border-radius:100px!important;padding:9px 22px!important;letter-spacing:1px!important;transition:all .25s!important;box-shadow:0 0 20px rgba(88,176,179,.1)}
+.nav-cta:hover{background:rgba(88,176,179,.25)!important;border-color:rgba(88,176,179,.8)!important;color:#fff!important;box-shadow:0 0 28px rgba(88,176,179,.25)}
 .burger{display:none;flex-direction:column;gap:6px;cursor:pointer;padding:8px;border:none;background:none}
 .burger span{display:block;width:24px;height:1.5px;background:rgba(255,255,255,.8);border-radius:2px;transition:all .3s;transform-origin:center}
 .burger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
 .burger.open span:nth-child(2){opacity:0;width:0}
 .burger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-.mob-nav{display:none;position:fixed;top:76px;left:0;right:0;background:rgba(6,8,20,.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);padding:12px 24px 28px;z-index:199;flex-direction:column;border-top:1px solid rgba(58,181,216,.15)}
+.mob-nav{display:none;position:fixed;top:76px;left:0;right:0;background:rgba(6,8,20,.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);padding:12px 24px 28px;z-index:199;flex-direction:column;border-top:1px solid rgba(88,176,179,.15)}
 .mob-nav.open{display:flex}
 .mob-nav a{font-size:.85rem;font-weight:600;color:rgba(255,255,255,.6);padding:16px 0;border-bottom:1px solid rgba(255,255,255,.05);letter-spacing:1.5px;text-transform:uppercase;transition:color .2s}
 .mob-nav a:hover{color:#fff}
-.mob-nav a:last-child{border-bottom:none;color:#3ab5d8!important;font-weight:700;margin-top:8px}
+.mob-nav a:last-child{border-bottom:none;color:#58b0b3!important;font-weight:700;margin-top:8px}
 
 /* ══ HERO ══ */
 .hero{position:relative;height:100vh;min-height:600px;overflow:hidden;background:#060710}
@@ -56,36 +56,36 @@ header.scrolled .logo-sb{opacity:.55}
 .s3{background-image:url('IMG_3636.png')}
 .s4{background-image:url('IMG_3637.png')}
 .hero-body{position:relative;z-index:10;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 68px;max-width:1240px;margin:0 auto;width:100%}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(29,71,186,.2);border:1px solid rgba(42,95,212,.6);padding:5px 14px;border-radius:100px;margin-bottom:18px;width:fit-content}
-.hero-tag span{font-size:.7rem;color:#3ab5d8;letter-spacing:2.5px;text-transform:uppercase;font-weight:600}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(88,176,179,.12);border:1px solid rgba(88,176,179,.45);padding:5px 14px;border-radius:100px;margin-bottom:18px;width:fit-content}
+.hero-tag span{font-size:.7rem;color:#58b0b3;letter-spacing:2.5px;text-transform:uppercase;font-weight:600}
 .hero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(3rem,7vw,6.5rem);font-weight:800;color:#fff;line-height:.95;letter-spacing:-.5px;text-transform:uppercase;margin-bottom:22px}
 .hero h1 .il{display:block;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:.55em;letter-spacing:1px;text-transform:none;color:rgba(255,255,255,.7);margin-bottom:4px}
-.hero h1 .ac{color:#3ab5d8}
+.hero h1 .ac{color:#58b0b3}
 .hero-foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
-.btn-blue{background:var(--blue);color:#fff;padding:14px 30px;border-radius:8px;font-weight:600;font-size:.9rem;transition:background .2s,transform .15s;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 16px rgba(29,71,186,.4)}
-.btn-blue:hover{background:var(--blue-l);transform:translateY(-2px)}
+.btn-blue{background:var(--teal-dk);color:#fff;padding:14px 30px;border-radius:8px;font-weight:600;font-size:.9rem;transition:background .2s,transform .15s;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 16px rgba(46,138,141,.35)}
+.btn-blue:hover{background:var(--teal);transform:translateY(-2px)}
 .btn-ol{background:rgba(255,255,255,.08);color:#fff;padding:14px 30px;border-radius:8px;border:1.5px solid rgba(255,255,255,.65);font-weight:500;font-size:.9rem;transition:border-color .2s,background .2s;backdrop-filter:blur(4px)}
 .btn-ol:hover{border-color:#fff;background:rgba(255,255,255,.14)}
 .dots{display:flex;gap:8px;align-items:center}
 .dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:all .3s}
-.dot.active{width:24px;border-radius:3px;background:#3ab5d8}
+.dot.active{width:24px;border-radius:3px;background:#58b0b3}
 
 /* ══ INFO BAND ══ */
 .iband{background:var(--navy);padding:16px 0}
 .iband-in{max-width:1240px;margin:0 auto;padding:0 32px;display:flex;flex-wrap:wrap}
 .ii{display:flex;align-items:center;gap:10px;padding:8px 28px 8px 0;margin-right:28px;border-right:1px solid rgba(255,255,255,.1);flex-shrink:0}
 .ii:last-child{border-right:none;margin-right:0}
-.ii svg{color:#3ab5d8;flex-shrink:0}
+.ii svg{color:#58b0b3;flex-shrink:0}
 .ii span{font-size:.85rem;color:rgba(255,255,255,.7)}
 .ii strong{color:#fff;font-weight:500}
 
 /* ══ HELPERS ══ */
-.eyebrow{font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:10px}
+.eyebrow{font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--teal-dk);font-weight:600;margin-bottom:10px}
 .st{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;text-transform:uppercase;letter-spacing:-.5px;line-height:1;color:var(--black)}
-.st em{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;text-transform:none;color:var(--blue);font-size:1.15em;letter-spacing:0}
+.st em{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;text-transform:none;color:var(--teal-dk);font-size:1.15em;letter-spacing:0}
 .wh{color:#fff}
-.tl{color:#3ab5d8!important}
+.tl{color:#58b0b3!important}
 
 /* ══ SERVIZI ══ */
 .services{padding:96px 0;background:#fff}
@@ -98,14 +98,14 @@ header.scrolled .logo-sb{opacity:.55}
 .sc-img{width:100%;height:210px;object-fit:cover;display:block;transition:transform .6s}
 .sc:hover .sc-img{transform:scale(1.04)}
 .sc-body{padding:22px 22px 26px}
-.sc-num{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:2px;color:var(--blue);font-weight:600;margin-bottom:5px}
+.sc-num{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:2px;color:var(--teal-dk);font-weight:600;margin-bottom:5px}
 .sc-body h3{font-family:'Barlow Condensed',sans-serif;font-size:1.35rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--black);margin-bottom:7px}
 .sc-body p{font-size:.86rem;color:var(--grey);line-height:1.65}
 
 /* ══ MEDIA ══ */
 .media{padding:96px 0;background:var(--black)}
 .mh{max-width:1240px;margin:0 auto 44px;padding:0 32px}
-.mh .eyebrow{color:#3ab5d8}
+.mh .eyebrow{color:#58b0b3}
 .mg{max-width:1240px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:auto auto;gap:8px}
 .mi{position:relative;overflow:hidden;border-radius:10px;background:#111}
 .mi img,.mi video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s,opacity .3s}
@@ -132,21 +132,21 @@ header.scrolled .logo-sb{opacity:.55}
 .loc-info .st{margin-bottom:28px}
 .cr{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--border)}
 .cr:last-of-type{border-bottom:none}
-.ci{width:38px;height:38px;flex-shrink:0;background:rgba(29,71,186,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.ci{width:38px;height:38px;flex-shrink:0;background:rgba(88,176,179,.08);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-top:2px}
 .cl{font-size:.65rem;text-transform:uppercase;letter-spacing:2px;color:var(--grey);margin-bottom:3px}
 .cv{font-size:.96rem;font-weight:600;color:var(--black);line-height:1.5}
 .cv a{color:var(--black)}
-.cv a:hover{color:var(--blue)}
+.cv a:hover{color:var(--teal-dk)}
 .cv small{font-weight:400;font-size:.84rem;color:var(--grey)}
 .mframe{border-radius:14px;overflow:hidden;box-shadow:0 14px 44px rgba(0,0,0,.1)}
 .mframe iframe{width:100%;height:450px;border:none;display:block}
 
 /* ══ CTA ══ */
-.cta{padding:80px 32px;background:var(--blue);text-align:center}
+.cta{padding:80px 32px;background:var(--teal-dk);text-align:center}
 .cta h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:800;text-transform:uppercase;color:#fff;letter-spacing:-.5px;margin-bottom:14px}
 .cta p{font-size:1rem;color:rgba(255,255,255,.75);margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto}
 .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.btn-w{background:#fff;color:var(--blue);padding:14px 32px;border-radius:8px;font-weight:700;font-size:.92rem;display:inline-flex;align-items:center;gap:8px;transition:transform .2s,box-shadow .2s}
+.btn-w{background:#fff;color:var(--teal-dk);padding:14px 32px;border-radius:8px;font-weight:700;font-size:.92rem;display:inline-flex;align-items:center;gap:8px;transition:transform .2s,box-shadow .2s}
 .btn-w:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
 .btn-g{background:transparent;color:#fff;padding:14px 32px;border-radius:8px;font-weight:600;font-size:.92rem;border:2px solid rgba(255,255,255,.5);transition:border-color .2s,background .2s}
 .btn-g:hover{border-color:#fff;background:rgba(255,255,255,.1)}
@@ -156,9 +156,9 @@ footer{background:var(--black);padding:52px 32px 24px}
 .ft-in{max-width:1240px;margin:0 auto}
 .ft-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.07)}
 .fb-name{font-family:'Barlow Condensed',sans-serif;font-size:1.55rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
-.fb-name span{color:#3ab5d8}
+.fb-name span{color:#58b0b3}
 .fb-desc{font-size:.84rem;color:rgba(255,255,255,.38);line-height:1.7;max-width:250px}
-.fc h4{font-size:.63rem;letter-spacing:3px;text-transform:uppercase;color:#3ab5d8;margin-bottom:16px;font-weight:600}
+.fc h4{font-size:.63rem;letter-spacing:3px;text-transform:uppercase;color:#58b0b3;margin-bottom:16px;font-weight:600}
 .fc ul{list-style:none}
 .fc ul li{margin-bottom:9px}
 .fc ul li a{font-size:.86rem;color:rgba(255,255,255,.45);transition:color .2s}
@@ -167,7 +167,7 @@ footer{background:var(--black);padding:52px 32px 24px}
 .ft-bot p{font-size:.73rem;color:rgba(255,255,255,.22)}
 .soc{display:flex;gap:10px}
 .sb{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);transition:all .2s}
-.sb:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+.sb:hover{background:var(--teal-dk);color:#fff;border-color:var(--teal-dk)}
 
 /* ══ ANIMAZIONI ══ */
 .rev{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
@@ -198,7 +198,7 @@ footer{background:var(--black);padding:52px 32px 24px}
   .logo-nm{font-size:1.35rem;letter-spacing:2px}
   header.scrolled .logo-nm{font-size:1.15rem}
   .logo-nm .oc{color:#fff!important}
-  .logo-nm .oc2{color:#3ab5d8!important}
+  .logo-nm .oc2{color:#58b0b3!important}
   .logo-sb{display:none}
   .logo-divider{height:28px}
   .nav-links{display:none}
@@ -270,7 +270,7 @@ footer{background:var(--black);padding:52px 32px 24px}
   </div>
   <div class="hero-body">
     <div class="hero-tag">
-      <svg width="8" height="8"><circle cx="4" cy="4" r="4" fill="#3ab5d8"/></svg>
+      <svg width="8" height="8"><circle cx="4" cy="4" r="4" fill="#58b0b3"/></svg>
       <span>Studio Dentistico · Corato, Puglia</span>
     </div>
     <h1><span class="il">Il tuo sorriso,</span>La Nostra<br><span class="ac">Missione</span></h1>
@@ -341,10 +341,10 @@ footer{background:var(--black);padding:52px 32px 24px}
       <h2 class="st">Tecnologia<br><em>d'Avanguardia</em></h2>
       <p>Investiamo nel continuo aggiornamento del nostro team e in strumenti diagnostici di nuova generazione per trattamenti precisi, sicuri e confortevoli.</p>
       <div class="tags">
-        <span class="tag">Avanguardia</span>
+        <span class="tag">Strumenti Di Eccellenza</span>
         <span class="tag">Qualità</span>
         <span class="tag">Esperienza</span>
-        <span class="tag">Pulizia</span>
+        <span class="tag">Materiale Sterilizzato</span>
         <span class="tag">E Tanto Altro...</span>
       </div>
     </div>
@@ -356,10 +356,10 @@ footer{background:var(--black);padding:52px 32px 24px}
     <div class="loc-info rev">
       <p class="eyebrow">Contatti & Orari</p>
       <h2 class="st">Vieni a<br><em>Trovarci</em></h2>
-      <div class="cr"><div class="ci"><svg width="17" height="17" fill="none" stroke="#1d47ba" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><p class="cl">Indirizzo</p><p class="cv">Via M.R. Imbriani, 72<br>70033 Corato (BT)</p></div></div>
-      <div class="cr"><div class="ci"><svg width="17" height="17" fill="none" stroke="#1d47ba" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.36-.36a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><div><p class="cl">Telefono</p><p class="cv"><a href="tel:+390808170385">080 817 0385</a> / <a href="tel:+393806881599">380 688 1599</a></p></div></div>
-      <div class="cr"><div class="ci"><svg width="17" height="17" fill="none" stroke="#1d47ba" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><p class="cl">Email</p><p class="cv"><a href="mailto:oriscura10@gmail.com">oriscura10@gmail.com</a></p></div></div>
-      <div class="cr"><div class="ci"><svg width="17" height="17" fill="none" stroke="#1d47ba" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><p class="cl">Orari</p><p class="cv">Lun–Ven: 10:00–12:00 / 16:00–19:00<br><small>Solo su appuntamento</small></p></div></div>
+      <div class="cr"><div class="ci"><svg width="17" height="17" fill="none" stroke="#2e8a8d" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><p class="cl">Indirizzo</p><p class="cv">Via M.R. Imbriani, 72<br>70033 Corato (BT)</p></div></div>
+      <div class="cr"><div class="ci"><svg width="17" height="17" fill="none" stroke="#2e8a8d" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.36-.36a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><div><p class="cl">Telefono</p><p class="cv"><a href="tel:+390808170385">080 817 0385</a> / <a href="tel:+393806881599">380 688 1599</a></p></div></div>
+      <div class="cr"><div class="ci"><svg width="17" height="17" fill="none" stroke="#2e8a8d" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><p class="cl">Email</p><p class="cv"><a href="mailto:oriscura10@gmail.com">oriscura10@gmail.com</a></p></div></div>
+      <div class="cr"><div class="ci"><svg width="17" height="17" fill="none" stroke="#2e8a8d" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><p class="cl">Orari</p><p class="cv">Lun–Ven: 10:00–12:00 / 16:00–19:00<br><small>Solo su appuntamento</small></p></div></div>
     </div>
     <div class="mframe rev d1">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3004.323321253266!2d16.409141575866002!3d41.14929577133117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13380f8aa5a36d75%3A0x75283965b4708489!2sOris%20Cura%20Srl%20%2F%20Stp!5e0!3m2!1sit!2sit!4v1724703948782!5m2!1sit!2sit" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
