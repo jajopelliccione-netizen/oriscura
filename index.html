@@ -246,32 +246,10 @@ footer{padding:40px 20px 20px}
     <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:700;letter-spacing:3px;color:#fff;text-transform:uppercase;margin-bottom:4px;"><span style="color:#58b0b3">ORIS</span>CURA</div>
     <div style="font-size:.6rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:32px;">Odontoiatria Specialistica</div>
     <input id="pwd" type="password" placeholder="Password" style="width:100%;padding:14px 18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:10px;color:#fff;font-size:16px;font-family:'Barlow',sans-serif;outline:none;margin-bottom:12px;box-sizing:border-box;">
-    <div id="pwderr" style="color:#e05555;font-size:.8rem;margin-bottom:10px;display:none;">Password errata. Riprova.</div>
-    <button id="entrabtn" style="width:100%;padding:14px;background:#2e8a8d;border:none;border-radius:10px;color:#fff;font-weight:700;font-size:.92rem;letter-spacing:.5px;cursor:pointer;font-family:'Barlow',sans-serif;">Entra</button>
+    <div id="pwderr" style="color:#e05555;font-size:.8rem;margin-bottom:10px;min-height:20px;"></div>
+    <button id="entrabtn" style="width:100%;padding:14px;background:#2e8a8d;border:none;border-radius:10px;color:#fff;font-weight:700;font-size:16px;letter-spacing:.5px;cursor:pointer;font-family:'Barlow',sans-serif;">Entra</button>
   </div>
 </div>
-<script>
-(function(){
-  var gate=document.getElementById('gate');
-  var pwd=document.getElementById('pwd');
-  var err=document.getElementById('pwderr');
-  var btn=document.getElementById('entrabtn');
-  function tryLogin(){
-    if(pwd.value==='CiccioAldo0011'){
-      gate.style.display='none';
-      sessionStorage.setItem('auth','1');
-      window.scrollTo(0,0);
-    } else {
-      err.style.display='block';
-      pwd.value='';
-      pwd.focus();
-    }
-  }
-  btn.addEventListener('click', tryLogin);
-  pwd.addEventListener('keydown', function(e){ if(e.key==='Enter') tryLogin(); });
-  if(sessionStorage.getItem('auth')==='1'){ gate.style.display='none'; window.scrollTo(0,0); }
-})();
-</script>
 <!-- FINE PASSWORD GATE -->
 
 <!-- PASSWORD GATE -->
@@ -475,6 +453,30 @@ const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.tar
 document.querySelectorAll('.rev').forEach(el=>ro.observe(el));
 const hdr=document.getElementById('hdr');
 window.addEventListener('scroll',()=>{hdr.classList.toggle('scrolled',window.scrollY>80);},{passive:true});
+
+// PASSWORD
+var gate=document.getElementById('gate');
+if(gate){
+  if(sessionStorage.getItem('auth')==='1'){
+    gate.style.display='none';
+  } else {
+    document.getElementById('entrabtn').addEventListener('click',function(){
+      var v=document.getElementById('pwd').value;
+      if(v==='CiccioAldo0011'){
+        gate.style.display='none';
+        sessionStorage.setItem('auth','1');
+        window.scrollTo(0,0);
+      } else {
+        document.getElementById('pwderr').textContent='Password errata. Riprova.';
+        document.getElementById('pwd').value='';
+        document.getElementById('pwd').focus();
+      }
+    });
+    document.getElementById('pwd').addEventListener('keydown',function(e){
+      if(e.key==='Enter') document.getElementById('entrabtn').click();
+    });
+  }
+}
 </script>
 
 </body>
