@@ -385,5 +385,21 @@ const hdr=document.getElementById('hdr');
 window.addEventListener('scroll',()=>{hdr.classList.toggle('scrolled',window.scrollY>80);},{passive:true});
 </script>
 
+<script>
+(function(){
+  try {
+    fetch('https://astra-notify.jacopopelliccione.workers.dev/api/track', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        clientId: 'ckgdY0nWcuPefmekparAYbbDYQN2',
+        page: location.pathname,
+        ref: document.referrer || ''
+      })
+    });
+  } catch(e) {}
+})();
+</script>
+
 </body>
 </html>
